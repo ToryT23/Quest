@@ -8,11 +8,15 @@ namespace Quest
     class Program
     {
         static void Main(string[] args)
-        {
+{
+    Robe newRobe = new Robe()  {Length = 7 , Colors = new List <string> {"Red", "Blue", "Green", "Whatever"}};
+
           // Make a new "Adventurer" object using the "Adventurer" class
           Console.WriteLine("What's your name?");
-          Adventurer theAdventurer = new Adventurer(Console.ReadLine());
-
+          // instance of the class = theAdventurer
+          Adventurer theAdventurer = new Adventurer(Console.ReadLine(), newRobe);
+          
+        Console.WriteLine(theAdventurer.getDescription());
             // Create a few challenges for our Adventurer's quest
             // The "Challenge" Constructor takes three arguments
             //   the text of the challenge
@@ -92,7 +96,7 @@ namespace Quest
             Console.WriteLine("Do you want to play again? (Y/N)");
             string playAgainAnswer = Console.ReadLine();
         
-        
+
         switch (playAgainAnswer.ToLower()){
             case "y":
             challengeAsker();

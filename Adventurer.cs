@@ -1,3 +1,5 @@
+using System;
+
 namespace Quest
 {
     // An instance of the Adventurer class is an object that will undergo some challenges
@@ -12,11 +14,22 @@ namespace Quest
         //  So it can be read and changed by any code in the application
         public int Awesomeness { get; set; }
 
+        // 5.) This is an "immutable" property. It only has a "get".
+
+        public Robe ColorfulRobe {get;}
+
+
         // A constructor to make a new Adventurer object with a given name
-        public Adventurer(string name)
+      //  Add a new constructor parameter to the Adventurer class to accept a Robe and to set the colorfulRobe property.
+        public Adventurer(string name, Robe colorfulRobe)
         {
             Name = name;
             Awesomeness = 50;
+            ColorfulRobe = colorfulRobe;
+        }
+
+        public string getDescription () {
+            return ($"{Name} wears a robe that is {ColorfulRobe.Length} feet long and has the colors of {String.Join(",",ColorfulRobe.Colors)} ");
         }
 
 
