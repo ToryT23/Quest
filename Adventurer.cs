@@ -18,18 +18,22 @@ namespace Quest
 
         public Robe ColorfulRobe {get;}
 
+// Add a Hat property and constructor parameter to the Adventurer class.
+
+        public Hat ShinyHat {get;}
 
         // A constructor to make a new Adventurer object with a given name
       //  Add a new constructor parameter to the Adventurer class to accept a Robe and to set the colorfulRobe property.
-        public Adventurer(string name, Robe colorfulRobe)
+        public Adventurer(string name, Robe colorfulRobe , Hat shinyHat)
         {
             Name = name;
             Awesomeness = 50;
             ColorfulRobe = colorfulRobe;
+            ShinyHat = shinyHat;
         }
 
         public string getDescription () {
-            return ($"{Name} wears a robe that is {ColorfulRobe.Length} feet long and has the colors of {String.Join(",",ColorfulRobe.Colors)} ");
+            return ($"{Name} wears a robe that is {ColorfulRobe.Length} feet long and has the colors of {String.Join(",",ColorfulRobe.Colors)}, and a {ShinyHat.ShininessDescription}  hat.")  ;
         }
 
 

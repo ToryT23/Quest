@@ -10,12 +10,14 @@ namespace Quest
         static void Main(string[] args)
 {
     Robe newRobe = new Robe()  {Length = 7 , Colors = new List <string> {"Red", "Blue", "Green", "Whatever"}};
+    //Update the Program.cs file to create a Hat and pass it to the Adventurer's constructor.
+    Hat newHat = new Hat() {ShininessLevel = 6 };
 
           // Make a new "Adventurer" object using the "Adventurer" class
           Console.WriteLine("What's your name?");
           // instance of the class = theAdventurer
-          Adventurer theAdventurer = new Adventurer(Console.ReadLine(), newRobe);
-          
+          Adventurer theAdventurer = new Adventurer(Console.ReadLine(), newRobe, newHat);
+
         Console.WriteLine(theAdventurer.getDescription());
             // Create a few challenges for our Adventurer's quest
             // The "Challenge" Constructor takes three arguments
