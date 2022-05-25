@@ -9,6 +9,10 @@ namespace Quest
     {
         static void Main(string[] args)
         {
+          // Make a new "Adventurer" object using the "Adventurer" class
+          Console.WriteLine("What's your name?");
+          Adventurer theAdventurer = new Adventurer(Console.ReadLine());
+
             // Create a few challenges for our Adventurer's quest
             // The "Challenge" Constructor takes three arguments
             //   the text of the challenge
@@ -42,8 +46,7 @@ namespace Quest
             int minAwesomeness = 0;
             int maxAwesomeness = 100;
 
-            // Make a new "Adventurer" object using the "Adventurer" class
-            Adventurer theAdventurer = new Adventurer("Jack");
+           
 
             // A list of challenges for the Adventurer to complete
             // Note we can use the List class here because have the line "using System.Collections.Generic;" at the top of the file.
@@ -56,26 +59,52 @@ namespace Quest
                 favoriteBeatle
             };
 
+            // fuction to store foreach // and if statements to call later.
+        void challengeAsker() {
             // Loop through all the challenges and subject the Adventurer to them
             foreach (Challenge challenge in challenges)
             {
                 challenge.RunChallenge(theAdventurer);
+                
             }
-
-            // This code examines how Awesome the Adventurer is after completing the challenges
+             // This code examines how Awesome the Adventurer is after completing the challenges
             // And praises or humiliates them accordingly
             if (theAdventurer.Awesomeness >= maxAwesomeness)
             {
                 Console.WriteLine("YOU DID IT! You are truly awesome!");
+                PlayAgainQuestion();
             }
             else if (theAdventurer.Awesomeness <= minAwesomeness)
             {
                 Console.WriteLine("Get out of my sight. Your lack of awesomeness offends me!");
+                PlayAgainQuestion();
             }
             else
             {
                 Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
+                PlayAgainQuestion();
             }
+        
         }
+        challengeAsker();
+
+        void PlayAgainQuestion() {
+            Console.WriteLine("Do you want to play again? (Y/N)");
+            string playAgainAnswer = Console.ReadLine();
+        
+        
+        switch (playAgainAnswer.ToLower()){
+            case "y":
+            challengeAsker();
+            break;
+
+            default:
+            Console.WriteLine("Come back again sometimes!");
+            break;
+        }
+        }
+
+           
     }
+}
 }
